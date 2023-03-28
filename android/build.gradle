@@ -38,12 +38,15 @@ android {
 }
 
 buildscript {
+    repositories {
+        google()
+    }
     if (project == rootProject) {
         repositories {
             jcenter()
         }
         dependencies {
-            classpath 'com.android.tools.build:gradle:3.3.2'
+            classpath 'com.android.tools.build:gradle:4.2.2'
 
             // NOTE: Do not place your application dependencies here; they belong
             // in the individual module build.gradle files
@@ -54,6 +57,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        google()
     }
 }
 
@@ -62,6 +66,6 @@ def supportVersion = rootProject.hasProperty('supportLibVersion') ? rootProject.
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
-    implementation "com.android.support:appcompat-v7:${supportVersion}"
+    implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.facebook.react:react-native:+'
 }
